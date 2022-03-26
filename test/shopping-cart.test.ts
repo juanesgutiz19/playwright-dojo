@@ -1,12 +1,12 @@
 import { chromium } from "playwright";
 import { test, expect } from '@playwright/test';
 
-test('Verify shopping cart total basic flow', async () => {
-    const browser = await chromium.launch({
-        headless: false
-    })
-    const context = await browser.newContext();
-    const page = await context.newPage();
+test('Verify shopping cart total basic flow', async ({ page }) => {
+    // const browser = await chromium.launch({
+    //     headless: false
+    // })
+    // const context = await browser.newContext();
+    // const page = await context.newPage();
     await page.goto('https://demoblaze.com/');
     await page.locator('a:has-text("Samsung galaxy s6")').click();
     await expect(page).toHaveURL('https://demoblaze.com/prod.html?idp_=1');
@@ -33,12 +33,12 @@ test('Verify shopping cart total basic flow', async () => {
     await expect(page.locator('#totalp')).toHaveText('1180');
 });
 
-test('Verify shopping cart total with deletion', async () => {
-    const browser = await chromium.launch({
-        headless: false
-    })
-    const context = await browser.newContext();
-    const page = await context.newPage();
+test('Verify shopping cart total with deletion', async ({ page }) => {
+    // const browser = await chromium.launch({
+    //     headless: false
+    // })
+    // const context = await browser.newContext();
+    // const page = await context.newPage();
     await page.goto('https://demoblaze.com/');
     await page.locator('a:has-text("HTC One M9")').click();
     await expect(page).toHaveURL('https://demoblaze.com/prod.html?idp_=7');
@@ -69,12 +69,12 @@ test('Verify shopping cart total with deletion', async () => {
 });
 
 
-test('Verify modal shopping cart total', async () => {
-    const browser = await chromium.launch({
-        headless: false
-    })
-    const context = await browser.newContext();
-    const page = await context.newPage();
+test('Verify modal shopping cart total', async ({ page }) => {
+    // const browser = await chromium.launch({
+    //     headless: false
+    // })
+    // const context = await browser.newContext();
+    // const page = await context.newPage();
     await page.goto('https://demoblaze.com/');
     await page.locator('text=Iphone 6 32gb').click();
     await expect(page).toHaveURL('https://demoblaze.com/prod.html?idp_=5');
