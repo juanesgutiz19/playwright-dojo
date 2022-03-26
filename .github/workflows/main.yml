@@ -15,9 +15,9 @@ jobs:
 
       - name: Instalar dependencias
         run: npm install
-
-      - name: Listar las dependencias instaladas
-        run: npm ls --depth=0
+      
+      - name: Instalar dependencias de npx
+        run: npx playwright install-deps
       
       - name: Ejecutar las pruebas
         run: npx playwright test
