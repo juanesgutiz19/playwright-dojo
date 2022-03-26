@@ -81,23 +81,3 @@ test('Verify modal shopping cart total', async ({ page }) => {
     await expect(page.locator('#totalm')).toContainText('790');
 });
 
-test('Verify modal shopping cart total WRONG', async ({ page }) => {
-    await page.goto('https://demoblaze.com/');
-    await page.locator('text=Iphone 6 32gb').click();
-    await expect(page).toHaveURL('https://demoblaze.com/prod.html?idp_=5');
-    page.once('dialog', dialog => {
-        expect(dialog.message()).toBe('Product added');
-        dialog.dismiss().catch(() => { });
-    });
-    await page.locator('text=Add to cart').click();
-    await expect(page).toHaveURL('https://demoblaze.com/prod.html?idp_=5#');
-    await page.locator('#cartur').click();
-    await expect(page).toHaveURL('https://demoblaze.com/cart.html');
-    await page.locator('button:has-text("Place Order")').click();
-
-    await expect(page.locator('#totalm')).toContainText('790 :O');
-});
-
-
-
-
