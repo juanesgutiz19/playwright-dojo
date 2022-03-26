@@ -63,7 +63,6 @@ test('Verify shopping cart total with deletion', async ({ page }) => {
     await expect(page.locator('#totalp')).toHaveText('650');
 });
 
-
 test('Verify modal shopping cart total', async ({ page }) => {
     await page.goto('https://demoblaze.com/');
     await page.locator('text=Iphone 6 32gb').click();
