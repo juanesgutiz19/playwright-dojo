@@ -12,6 +12,10 @@ jobs:
         with:
           node-version: '14'
       - uses: microsoft/playwright-github-action@v1
+     
+      - run: echo "🎉 La rutina  fue lanzada por un evento de  ${{ github.event_name }}."
+      - run: echo "🐧 La rutina esta corriendo en un servidor ${{ runner.os }} proporcionado por GitHub!"
+      - run: echo "🔎 El nombre del branch es ${{ github.ref }} y tu repositorio es ${{ github.repository }}."
 
       - name: Instalar dependencias
         run: npm install
